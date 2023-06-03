@@ -1,4 +1,4 @@
-  + Nota: Para clonar este repositorio use el siguiente codigo.
+  + Nota: Para clonar este repositorio use el siguiente codigo:
   !git clone https://github.com/LincolnEPP1998/STAT.git
 
 
