@@ -6,3 +6,5 @@ RETO CODEFEST AD ASTRA 2023, Librería OpenSource para la identificación con un
 # Video
 
 ## *Primeros Pasos*
+
+ + Si se desea ejecutar el código de video, es necesario
