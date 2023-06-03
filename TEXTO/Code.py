@@ -49,43 +49,43 @@ def limpieza(df,columna):
   
   
   
-  def modelo_ner(df,I):
-    """df hace referencia a la columna a la cual se le desea aplicar NER"""
-    tagger = SequenceTagger.load("flair/ner-spanish-large")
-    entities = []
+def modelo_ner(df,I):
+  #"""df hace referencia a la columna a la cual se le desea aplicar NER"""
+  tagger = SequenceTagger.load("flair/ner-spanish-large")
+  entities = []
     
-    #for i in range(0, df.shape[0]):
+  #for i in range(0, df.shape[0]):
         
-    oracion = Sentence(df.iloc[0,:]["TEXTO"])
-    tagger.predict(oracion)
-    for entity in oracion.get_spans("ner"):
-        entities.append({
+  oracion = Sentence(df.iloc[0,:]["TEXTO"])
+  tagger.predict(oracion)
+  for entity in oracion.get_spans("ner"):
+      entities.append({
                 "text": entity.text,
                 "type": entity.tag,
                 "score": entity.score})
-    entities = pd.DataFrame(entities)
-    entities = entities.assign(Texto = df.iloc[0,:]["TEXTO"])
-    json=[]
+  entities = pd.DataFrame(entities)
+  entities = entities.assign(Texto = df.iloc[0,:]["TEXTO"])
+  json=[]
     
-    datos_1 = ''
-    for i in range(0, len(list(entities[entities["type"]=="ORG"]["text"]))-1):
+  datos_1 = ''
+  for i in range(0, len(list(entities[entities["type"]=="ORG"]["text"]))-1):
         datos_1 = datos_1+list(entities[entities["type"]=="ORG"]["text"])[i]
         
-    datos_2 = ''
-    for i in range(0, len(list(entities[entities["type"]=="LOC"]["text"]))-1):
+  datos_2 = ''
+  for i in range(0, len(list(entities[entities["type"]=="LOC"]["text"]))-1):
         datos_2 = datos_2+list(entities[entities["type"]=="LOC"]["text"])[i]
         
-    datos_3 = ''
-    for i in range(0, len(list(entities[entities["type"]=="PER"]["text"]))-1):
+  datos_3 = ''
+  for i in range(0, len(list(entities[entities["type"]=="PER"]["text"]))-1):
         datos_3 = datos_3+list(entities[entities["type"]=="PER"]["text"])[i]
         
-    datos_5 = ''
-    for i in range(0, len(list(entities[entities["type"]=="MISC"]["text"]))-1):
+  datos_5 = ''
+  for i in range(0, len(list(entities[entities["type"]=="MISC"]["text"]))-1):
         datos_5 = datos_5+list(entities[entities["type"]=="MISC"]["text"])[i]
     
     
     
-    json.append({'texto':df["TEXTO"][I],
+  json.append({'texto':df["TEXTO"][I],
              'org':datos_1,
              'loc':datos_2,
              'per':datos_3,
@@ -95,7 +95,7 @@ def limpieza(df,columna):
             })
     
     
-    return json
+  return json
                 
     
     
@@ -112,7 +112,7 @@ def ner_from_file(text_path):
 ner_from_file("NOTICIAS DE LA AMAZONIA_CODEFEST.xlsx")
 
 
-noticias = pd.read_excel("NOTICIAS DE LA AMAZONIA_CODEFEST.xlsx")
+noticias  = pd.read_excel("NOTICIAS DE LA AMAZONIA_CODEFEST.xlsx")
 noticias = noticias.dropna()
 noticias.index = range(0,noticias.shape[0])
 noticias
@@ -138,6 +138,11 @@ def visualizador_categorias(df,columna, categoria):
     
 visualizador_categorias(noticias,"ETIQUETA","deforestacion")
 
+noticias  = pd.read_excel("NOTICIAS DE LA AMAZONIA_CODEFEST.xlsx")
+noticias = noticias.dropna()
+noticias.index = range(0,noticias.shape[0])
+noticias
+
 analyzer = create_analyzer(task="sentiment", lang="es")
 hate_speech_analyzer = create_analyzer(task="hate_speech", lang="es")
 
@@ -149,5 +154,5 @@ def get_sentiment(text):
 
 
 # Aplicar la función a la columna 'texto' utilizando el método 'apply' y almacenar los resultados en una nueva columna 'sentimiento'
-noticias["TEXTO"].apply(get_sentiment)
+noticias["Sentimiento"] = noticias["TEXTO"].apply(get_sentiment)
 noticias
