@@ -102,7 +102,7 @@ while cap.isOpened():
             cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
             cv2.putText(frame, f"{label}: {confidence:.2f}", (x, y - 5), font, 0.6, color, 2)
             print(contador)
-            reader = easyocr.Reader(['en'])
+            reader = easyocr.Reader(['en']) #Precedimiento para extraer el texto de las imagenes, solo funciona si exite extract.py
             result = reader.readtext(Img1, detail = 0)    
             datos_1 = ''
             for i in range(0, len(result)-1):
