@@ -1,3 +1,8 @@
+!pip install pysentimiento
+!pip install torch==2.0.1
+!pip uninstall -y transformers accelerate
+!pip install transformers accelerate
+
 !pip install flair
 !pip install pandas
 !pip install numpy
@@ -10,6 +15,8 @@
 !pip install spacy
 !pip install collections
 
+import nltk
+nltk.download('book')
 # librerias necesarias
 
 # librerias para manejo de DataFrame y arrays
