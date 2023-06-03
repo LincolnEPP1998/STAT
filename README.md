@@ -13,5 +13,10 @@ Para inicir se debe instalar las siguientes librerias: remotezi (Para ayuda en c
 
  + Importar las siguientes librerias: tqdm, random, pathlib, itertools, collections, cv2, einops, numpy,remotezip, seaborn, matplotlib.pyplot, tensorflow, keras, layers de keras, Image de PIL, pytesseract, img2pdf y os
 
+ + Se carga el video a analizar de la siguiente manera mediante cv2.VideoCapture
+ + Se divide el video en fotogramas para analizar frame por frame por medio de cap.read.
+ + Se ajusta el modelo pre entrenado de YOLO para captar información de los videos
+ + Luego de los frame extraidos se recorta las coordenadas que se encuntran en el video para posteriormente extraer dicho texto de las imagenes por medio de easyocr.Reader y reader.readtext; metodos que solo funcionan si el archivo extract.py se encuentra dentro del proyecto.
+ + Se estructuró los resultados tenidno en cuenta lo que el modelo haya encontrado dentro del videos y las corenas extraidas de los frames y se envia el un cvs conjuntamente con 3 videos (El priemero para hacer la segmentación, seguyndo la localizacion del avion y tercero para observar los objetos que capto)
  + 
 
