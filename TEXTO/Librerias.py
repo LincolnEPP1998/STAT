@@ -1,8 +1,14 @@
 !pip install flair
 !pip install pandas
-!pip install pandas
-
-
+!pip install numpy
+!pip install re
+!pip install nltk
+!pip install matplotlib
+!pip install wordcloud
+!pip install PIL
+!pip install flair
+!pip install spacy
+!pip install collections
 
 # librerias necesarias
 
