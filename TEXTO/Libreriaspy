@@ -1,0 +1,38 @@
+!pip install flair
+!pip install pandas
+!pip install pandas
+
+
+
+# librerias necesarias
+
+# librerias para manejo de DataFrame y arrays
+import pandas as pd
+import numpy as np
+
+# librerias para Procesamiento del Lenguaje Natural
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.tokenize.treebank import TreebankWordDetokenizer
+from nltk.book import *
+
+# librerias para visualizaciones
+import matplotlib.pyplot as plt
+from matplotlib import style
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+from PIL import Image
+
+# librerias para ner
+
+from flair.data import Sentence
+from flair.models import SequenceTagger
+import spacy
+from spacy import displacy
+from collections import Counter
+
+
+# librerias para Analisis de sentimientos
+
+from pysentimiento import create_analyzer
