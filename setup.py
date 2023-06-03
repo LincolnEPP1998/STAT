@@ -15,7 +15,7 @@ LONG_DESCRIPTION = (HERE / "README.md").read_text(encoding='utf-8')
 LONG_DESC_TYPE = "text/markdown"
 
 INSTALL_REQUIRES = [
-      'listado de librerias'
+      'pandas','numpy','re','nltk','matplotlib','spacy'
       ]
 
 setup(
