@@ -32,3 +32,9 @@ setup(
     packages=find_packages(),
     include_package_data=True
 )
+
+
+
+python setup.py sdist bdist_wheel
+
+
